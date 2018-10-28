@@ -1,0 +1,25 @@
+[
+	{
+		"name": "Findhitler.org",
+		"description": "Site web permettant de calculer le nombre minimum de sauts entre une page Wikipedia et celle d'Hitler.",
+		"contributors": [
+			"Alexis Lucas",
+			"Paul Queruel",
+			"Alexandre Cano"
+		],
+		"startDate": "01/04/2017",
+		"endDate": "01/07/2017",
+		"steps": [
+			"Émergence de l'idée",
+			"Début du travail sur l'implémentation de l'algorithme",
+			"Début du travail sur le design du site",
+			"Fin de la première implémentation de l'algorithme",
+			"Début du travail sur un autre design du site",
+			"Début du travail sur une autre implémentation de l'algorithme",
+			"Fin de la seconde implémentation de l'algorithme",
+			"Fin du design",
+			"Début de la deuxième version du design",
+			"Abandon du projet"
+		]
+	}
+]
