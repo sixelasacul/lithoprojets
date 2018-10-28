@@ -1,0 +1,28 @@
+body {
+    background-color: #212121;
+	color: #ffffff;
+	/* font-family: 'Playfair Display SC', serif; */
+	/* font-family: 'Playfair Display', serif; */
+	/* font-family: 'Merriweather', serif; */
+	/* font-family: 'Oswald', sans-serif; */
+	/* font-family: 'Lora', serif; */
+	/* font-family: 'Arvo', serif; */
+	font-family: 'Libre Baskerville', serif;
+}
+
+h1 {
+	font-size: 52px;
+	text-align: center;
+}
+
+li {
+	font-size: 24px;
+	text-align: center;
+	color: #455A64;
+}
+
+i.fas {
+	font-size: 18px;
+	margin: 0px 15px;
+	color: #263238;
+}
