@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
 import ProjectTitle from './ProjectTitle';
-import fs from 'fs'
+import { fetchData } from './utils';
 
 class ProjectList extends Component {
 	constructor(props) {
 		super(props);
-		this.setState({
+		this.state = {
 			projects: []
-		});
+		};
 	}
 
 	componentDidMount() {
-		this.fetchData();
-	}
-
-	fetchData() {
-		fs.readFile('../data/projects.json', (err, data) => {
-			if(err) {
-				console.error(err);
-				return;
-			}
-			console.log(data);
+		fetchData((data) => {
 			this.setState({
-				projects: JSON.parse(data)
-			})
+				projects: data
+			});
 		})
 	}
 
 	render() {
 		return (
 			<div>
-				<ProjectTitle path='allo' name='ALLOOO' />
+				{(this.state.projects && this.state.projects.length > 0) && (
+					<div>
+						<ul>
+							{this.state.projects.map(project => {
+								return (
+									<li key={project.code}>
+										<ProjectTitle project={project} />
+									</li>
+								)
+							})}
+						</ul>
+					</div>
+				)}
 			</div>
 		);
 	}

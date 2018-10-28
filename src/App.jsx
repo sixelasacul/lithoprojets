@@ -8,8 +8,8 @@ class App extends Component {
 		return (
 			<BrowserRouter basename='/'>
 				<Switch>
+					<Route path='/:id' component={ProjectDetails} />
 					<Route path='/' component={ProjectList} />
-					<Route path='/:name' component={ProjectDetails} />
 					<Redirect to='/' />
 				</Switch>
 			</BrowserRouter>

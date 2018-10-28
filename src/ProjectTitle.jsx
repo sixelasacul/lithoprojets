@@ -3,13 +3,23 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 ProjectTitle.propTypes = {
-	path: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired
+	project: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		code: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		contributors: PropTypes.array.isRequired,
+		startDate: PropTypes.string.isRequired,
+		endDate: PropTypes.string.isRequired,
+		steps: PropTypes.array.isRequired
+	}).isRequired,
 };
 
-function ProjectTitle({path, name}) {
+function ProjectTitle({project}) {
 	return (
-		<Link to={path}>{name}</Link>
+		<Link to={{
+			pathname: `/${project.code}`,
+			state: {project: project}
+		}}>{project.name}</Link>
 	)
 }
 
