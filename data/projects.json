@@ -1,6 +1,7 @@
 [
 	{
 		"name": "Findhitler.org",
+		"code": "fh-org",
 		"description": "Site web permettant de calculer le nombre minimum de sauts entre une page Wikipedia et celle d'Hitler.",
 		"contributors": [
 			"Alexis Lucas",
@@ -19,6 +20,45 @@
 			"Fin de la seconde implémentation de l'algorithme",
 			"Fin du design",
 			"Début de la deuxième version du design",
+			"Abandon du projet"
+		]
+	},
+	{
+		"name": "Polséidon",
+		"code": "polseidon",
+		"description": "Logiciel pour les ports, 25 000 € passé sous le new. De Cano.",
+		"contributors": [
+			"Alexis Lucas",
+			"Paul Queruel",
+			"Alexandre Cano"
+		],
+		"startDate": "01/05/2017",
+		"endDate": "01/07/2017",
+		"steps": [
+			"Émergence de l'idée",
+			"Premiers contacts avec le port de Nice",
+			"Tkt le comptable",
+			"Abandon du projet"
+		]
+	},
+	{
+		"name": "Babyfoot connecté",
+		"code": "babyfoot",
+		"description": "Projet de vie associative pour avoir une babyfoot et créer une application mobile/un site web pour voir et organiser ses matchs.",
+		"contributors": [
+			"Alexis Lucas",
+			"Paul Queruel",
+			"Alexandre Cano",
+			"Lilian Berger"
+		],
+		"startDate": "01/04/2017",
+		"endDate": "01/11/2017",
+		"steps": [
+			"Émergence de l'idée",
+			"Confirmation avec Manu",
+			"Réunion pour décider des fonctionnalités et des besoins",
+			"Réunion pour décider des fonctionnalités et des besoins",
+			"Réunion pour décider des fonctionnalités et des besoins",
 			"Abandon du projet"
 		]
 	}
