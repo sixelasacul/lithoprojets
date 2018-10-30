@@ -26,7 +26,7 @@
 	{
 		"name": "Polséidon",
 		"code": "polseidon",
-		"description": "Logiciel pour les ports, 25 000 € passé sous le new. De Cano.",
+		"description": "Logiciel pour les ports, 25 000 € passé sous le nez. De Cano.",
 		"contributors": [
 			"Alexis Lucas",
 			"Paul Queruel",
@@ -38,6 +38,26 @@
 			"Émergence de l'idée",
 			"Premiers contacts avec le port de Nice",
 			"Tkt le comptable",
+			"Abandon du projet"
+		]
+	},
+	{
+		"name": "Holobus",
+		"code": "holobus",
+		"description": "Solution utilisant les HoloLens de Microsoft pour visualiser en 3D, commander du matériel pour Airbus.",
+		"contributors": [
+			"Alexis Lucas",
+			"Paul Queruel",
+			"Alexandre Cano",
+			"Lilian Berger"
+		],
+		"startDate": "01/02/2017",
+		"endDate": "01/04/2017",
+		"steps": [
+			"Émergence de l'idée",
+			"Discussions avec Manu pour la faisabilité",
+			"Proposition à Airbus par Manu",
+			"Attente d'une réponse",
 			"Abandon du projet"
 		]
 	},
@@ -56,9 +76,83 @@
 		"steps": [
 			"Émergence de l'idée",
 			"Confirmation avec Manu",
-			"Réunion pour décider des fonctionnalités et des besoins",
-			"Réunion pour décider des fonctionnalités et des besoins",
-			"Réunion pour décider des fonctionnalités et des besoins",
+			"Réunion pour décider des fonctionnalités et des besoins (1)",
+			"Réunion pour décider des fonctionnalités et des besoins (2)",
+			"Réunion pour décider des fonctionnalités et des besoins (3)",
+			"Abandon du projet"
+		]
+	},
+	{
+		"name": "jaiunevierebondissante.com",
+		"code": "vierebondissante",
+		"description": "Idée marrante d'un gars qui raconte sa vie nulle pour faire rigoler ses camarades.",
+		"contributors": [
+			"Alexis Lucas"
+		],
+		"startDate": "16/10/2018",
+		"endDate": "16/10/2018",
+		"steps": [
+			"Émergence de l'idée",
+			"On a bien ri",
+			"Abandon du projet"
+		]
+	},
+	{
+		"name": "lesexpressionsdalexis.com",
+		"code": "expressionsalexis",
+		"description": "On vous a déjà dit au'il y avait un gars qui dit plein de choses sans sens censées faire rire ?",
+		"contributors": [
+			"Alexis Lucas"
+		],
+		"startDate": "22/10/2018",
+		"endDate": "22/10/2018",
+		"steps": [
+			"Émergence de l'idée",
+			"On a bien ri",
+			"Abandon du projet"
+		]
+	},
+	{
+		"name": "Taktyl",
+		"code": "taktyl",
+		"description": "Projet lucratif en dehors de l'école, pour développer une application mobile sur les 5 sens pour des aixois.",
+		"contributors": [
+			"Alexandre Cano",
+			"Paul Queruel",
+			"Lilian Berger"
+		],
+		"startDate": "01/04/2018",
+		"endDate": "01/08/2018",
+		"steps": [
+			"Alexandre trouve le contact sur Facebook",
+			"Le groupe se forme",
+			"Réunion pour définir les fonctionnalités (1)",
+			"Création du MCD",
+			"Réunion pour définir les fonctionnalités (2)",
+			"Mise å jour du MCD (1)",
+			"Réunion pour définir les fonctionnalités (3)",
+			"Mise å jour du MCD (1)",
+			"Réunion pour définir l'avancement (1)",
+			"Réunion pour définir l'avancement (2)",
+			"Demande de Paul pour avoir un MacBook Pro pour travailler",
+			"Abandon passif du projet",
+			"Réunion pour définir l'avancement (3)",
+			"Réunion pour définir l'avancement (4)",
+			"Réunion pour définir l'avancement (5)"
+		]
+	},
+	{
+		"name": "Bureau des sports",
+		"code": "bds",
+		"description": "En première année, c'est beau de vouloir entreprendre des projets. Pratiquer du sport dans une école d'ingénieur, c'était une bonne idée. En théorie.",
+		"contributors": [
+			"Denis Fèvre"
+		],
+		"startDate": "01/10/2015",
+		"endDate": "01/11/2015",
+		"steps": [
+			"Émergence de l'idée",
+			"On a bien ri",
 			"Abandon du projet"
 		]
 	}
