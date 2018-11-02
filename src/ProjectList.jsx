@@ -29,29 +29,29 @@ class ProjectList extends Component {
 	render() {
 		return (
 			<Grid container justify="center" direction="column" alignItems="center">
-				<Grid item xs={6}>
+				<Grid item>
 					<Typography variant="h1" gutterBottom>
 						Lithoprojets
 					</Typography>
 				</Grid>
-				<Grid item xs={3}>
+				<Grid item>
 					{(this.state.projects && this.state.projects.length > 0) && (
 						<Paper>
 							<List>
 								{this.state.projects.map(project => {
 									return (
-										<Link to={{
+										<Link key={project.code} to={{
 											pathname: `/${project.code}`,
 											state: { project: project }
 										}}>
-											<ListItem button key={project.code}>
+											<ListItem button>
 												<ListItemIcon>
 													<Typography variant="h4">
 														<FontAwesomeIcon icon="cross" />
 													</Typography>
 												</ListItemIcon>
 												<ListItemText>
-													<Typography variant="h4">
+													<Typography variant="h4" noWrap>
 														{project.name}
 													</Typography>
 												</ListItemText>

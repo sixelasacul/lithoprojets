@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import ProjectList from './ProjectList'
 import ProjectDetails from './ProjectDetails'
 
 class App extends Component {
 	render() {
 		return (
-			<BrowserRouter basename='/'>
+			<HashRouter basename={process.env.PUBLIC_URL}>
 				<Switch>
 					<Route path='/:id' component={ProjectDetails} />
 					<Route path='/' component={ProjectList} />
 					<Redirect to='/' />
 				</Switch>
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 }
