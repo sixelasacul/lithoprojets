@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fetchData } from './utils';
+import { fetchData } from './utils/fetch';
 
 class ProjectList extends Component {
 	constructor(props) {
@@ -40,10 +40,13 @@ class ProjectList extends Component {
 							<List>
 								{this.state.projects.map(project => {
 									return (
-										<Link key={project.code} to={{
-											pathname: `/${project.code}`,
-											state: { project: project }
-										}}>
+										<Link
+											key={project.code}
+											to={{
+												pathname: `/${project.code}`,
+												state: { project: project }
+											}}
+										>
 											<ListItem button>
 												<ListItemIcon>
 													<Typography variant="h4">

@@ -6,24 +6,31 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Slider from "@material-ui/lab/Slider";
-import { withStyles } from "@material-ui/core/styles";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { fetchAndFindByCode } from "./utils";
+import { fetchAndFindByCode } from "./utils/fetch";
+import { changeDateFormat } from "./utils/date";
 
-const styles = {
+const styles = theme => ({
 	textField: {
-		textAlign: "center"
+		color: theme.palette.primary.main
 	},
-	slider: {
+	sliderRoot: {
 		padding: "22px 0px"
+	},
+	sliderContainer: {
+		color: theme.palette.secondary.main
+	},
+	sliderTrack: {
+		backgroundColor: theme.palette.primary.main
 	},
 	paper: {
 		margin: "40px 0px",
 		padding: "25px"
 	}
-};
+});
 
 class ProjectDetails extends Component {
 	constructor(props) {
@@ -36,13 +43,8 @@ class ProjectDetails extends Component {
 			value: parseInt(value),
 			error: false
 		}
-		this.dateOptions = {
-			year: "numeric",
-			month: "long"
-		};
 		this.handleSliderDragged = this.handleSliderDragged.bind(this);
 		this.handleTextFieldChanged = this.handleTextFieldChanged.bind(this);
-		this.formatDateString = this.formatDateString.bind(this);
 	}
 
 	componentDidMount() {
@@ -63,6 +65,10 @@ class ProjectDetails extends Component {
 		}
 	}
 
+	changeDateFormat(date) {
+		return changeDateFormat(date, "DD/MM/YYYY", "MMMM YYYY");
+	}
+
 	handleSliderDragged(event, value) {
 		this.setState({
 			value
@@ -71,7 +77,7 @@ class ProjectDetails extends Component {
 
 	handleTextFieldChanged(event) {
 		const newValue = parseInt(event.target.value);
-		if(newValue < this.state.project.steps.length && newValue >= 0) {
+		if (newValue < this.state.project.steps.length && newValue >= 0) {
 			this.setState({
 				value: parseInt(event.target.value),
 				error: false
@@ -81,10 +87,6 @@ class ProjectDetails extends Component {
 				error: true
 			});
 		}
-	}
-
-	formatDateString(date) {
-		return Date.parse(date).toLocaleDateString("fr-FR", this.options);
 	}
 
 	render() {
@@ -115,31 +117,32 @@ class ProjectDetails extends Component {
 								</Typography>
 							</Paper>
 							<Paper className={classes.paper}>
-								<Grid container justify="center">
-									<Grid item xs={2}>
-										<TextField
-											classes={{fullWidth: classes.textField}}
-											label="Étape"
-											value={value}
-											error={error}
-											onChange={this.handleTextFieldChanged}
-											type="number"
-											inputProps={{
-												min: 0,
-												max: project.steps.length - 1,
-												step: 1
-											}}
-											variant="outlined"
-											fullWidth
-										/>
-									</Grid>
+								<Grid container direction="row" justify="center" alignItems="center">
+									<TextField
+										label="Étape"
+										value={value}
+										error={error}
+										onChange={this.handleTextFieldChanged}
+										type="number"
+										inputProps={{
+											min: 0,
+											max: project.steps.length - 1,
+											step: 1
+										}}
+										variant="outlined"
+									/>
 								</Grid>
 								<Grid item xs={12}>
 									<Slider
+										color="secondary"
 										min={0}
 										max={project.steps.length - 1}
 										step={1}
-										classes={{ container: classes.slider }}
+										classes={{
+											root: classes.sliderRoot,
+											container: classes.sliderContainer,
+											track: classes.sliderTrack
+										}}
 										value={value}
 										onChange={this.handleSliderDragged}
 										thumb={<FontAwesomeIcon icon="ghost" />}
@@ -148,7 +151,7 @@ class ProjectDetails extends Component {
 								<Grid container directon="row" justify="space-around" alignItems="flex-start">
 									<Grid item xs>
 										<Typography align="left" variant="body2">
-											{Date.parse(project.startDate)}
+											{this.changeDateFormat(project.startDate)}
 										</Typography>
 									</Grid>
 									<Grid item xs>
@@ -158,7 +161,7 @@ class ProjectDetails extends Component {
 									</Grid>
 									<Grid item xs>
 										<Typography align="right" variant="body2">
-											{project.endDate}
+											{this.changeDateFormat(project.endDate)}
 										</Typography>
 									</Grid>
 								</Grid>
