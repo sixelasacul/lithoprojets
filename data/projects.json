@@ -113,35 +113,6 @@
 		]
 	},
 	{
-		"name": "Taktyl",
-		"code": "taktyl",
-		"description": "Projet lucratif en dehors de l'école, pour développer une application mobile sur les 5 sens pour des aixois.",
-		"contributors": [
-			"Alexandre Cano",
-			"Paul Queruel",
-			"Lilian Berger"
-		],
-		"startDate": "01/04/2018",
-		"endDate": "01/08/2018",
-		"steps": [
-			"Alexandre trouve le contact sur Facebook",
-			"Le groupe se forme",
-			"Réunion pour définir les fonctionnalités (1)",
-			"Création du MCD",
-			"Réunion pour définir les fonctionnalités (2)",
-			"Mise å jour du MCD (1)",
-			"Réunion pour définir les fonctionnalités (3)",
-			"Mise å jour du MCD (1)",
-			"Réunion pour définir l'avancement (1)",
-			"Réunion pour définir l'avancement (2)",
-			"Demande de Paul pour avoir un MacBook Pro pour travailler",
-			"Abandon passif du projet",
-			"Réunion pour définir l'avancement (3)",
-			"Réunion pour définir l'avancement (4)",
-			"Réunion pour définir l'avancement (5)"
-		]
-	},
-	{
 		"name": "Bureau des sports",
 		"code": "bds",
 		"description": "En première année, c'est beau de vouloir entreprendre des projets. Pratiquer du sport dans une école d'ingénieur, c'était une bonne idée. En théorie.",
