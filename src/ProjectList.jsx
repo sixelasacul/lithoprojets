@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -7,8 +8,17 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import withStyles from "@material-ui/core/styles/withStyles";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fetchData } from './utils/fetch';
+
+
+const styles = theme => ({
+	link: {
+		textDecoration: "none",
+		color: theme.palette.secondary.main
+	}
+});
 
 class ProjectList extends Component {
 	constructor(props) {
@@ -27,6 +37,8 @@ class ProjectList extends Component {
 	}
 
 	render() {
+		const { classes } = this.props;
+
 		return (
 			<Grid container justify="center" direction="column" alignItems="center">
 				<Grid item>
@@ -46,6 +58,7 @@ class ProjectList extends Component {
 												pathname: `/${project.code}`,
 												state: { project: project }
 											}}
+											className={classes.link}
 										>
 											<ListItem button>
 												<ListItemIcon>
@@ -71,4 +84,8 @@ class ProjectList extends Component {
 	}
 }
 
-export default ProjectList;
+ProjectList.propTypes = {
+	classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(ProjectList);
