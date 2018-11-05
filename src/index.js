@@ -7,6 +7,7 @@ import blueGrey from '@material-ui/core/colors/blueGrey';
 import red from '@material-ui/core/colors/red';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGhost, faCross } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import App from './App';
 
 const darkTheme = createMuiTheme({
@@ -29,6 +30,7 @@ const darkTheme = createMuiTheme({
 
 library.add(faGhost);
 library.add(faCross);
+library.add(faGithub);
 
 ReactDOM.render(
 	<MuiThemeProvider theme={darkTheme}>
