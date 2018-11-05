@@ -4,7 +4,7 @@ import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ProjectList from "./ProjectList"
@@ -13,23 +13,32 @@ import ProjectDetails from "./ProjectDetails"
 const styles = {
 	appBar: {
 		marginBottom: "20px"
+	},
+	root: {
+		flexGrow: 1,
+	},
+	grow: {
+		flexGrow: 1,
+	},
+	menuButton: {
+		marginLeft: -12,
+		marginRight: 20,
 	}
 };
 
 class App extends Component {
 	render() {
+		const { classes } = this.props;
 		return (
-			<>
-				<AppBar position="static" color="secondary" classes={{ root: this.props.classes.appBar }}>
+			<div>
+				<AppBar position="static" color="secondary" classes={{ root: classes.appBar }}>
 					<ToolBar>
-						<Typography variant="h6">
+						<Typography variant="h6" className={classes.grow}>
 							Lithoprojets
 						</Typography>
-						{/* <Button>
-							<Typography variant="h6">
-								Github
-							</Typography>
-						</Button> */}
+						<IconButton href="https://github.com/sixelasacul/lithoprojets" target="_blank">
+							<FontAwesomeIcon icon={{prefix:"fab", iconName:"github"}} />
+						</IconButton>
 					</ToolBar>
 				</AppBar>
 				<HashRouter basename="/">
@@ -39,7 +48,7 @@ class App extends Component {
 						<Redirect to="/" />
 					</Switch>
 				</HashRouter>
-			</>
+			</div>
 		);
 	}
 }
