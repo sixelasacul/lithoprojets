@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import Slider from "@material-ui/lab/Slider";
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { withRouter } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -72,14 +73,22 @@ class ProjectDetails extends Component {
 		}
 	}
 
+	removeEnd(initialString, partToRemove) {
+		return initialString.substring(0, initialString.length - partToRemove.length)
+	}
+
 	copyToClipboard() {
-		this.shareLink = window.location.href + "#" + this.state.value;
+		const currentHash = this.props.location.hash;
+		const currentUrl = window.location.href;
+		const newBaseUrl = this.removeEnd(currentUrl, currentHash);
+		this.shareLink = "#" + this.state.value;
 		navigator.clipboard.writeText(this.shareLink)
 			.then(() => {
-				console.log('ouiiiiii');
+				console.log("Copié: ", this.shareLink);
 			})
 			.catch(err => {
-				console.log('Something went wrong', err);
+				console.log("Impossible d'écrire dans le presse-papier: ", err);
+				this.props.history.push(this.shareLink);
 			});
 	}
 
@@ -108,8 +117,11 @@ class ProjectDetails extends Component {
 	}
 
 	render() {
+		console.log(process.env.PUBLIC_URL);
+		console.log(this.props);
 		const { project, value, error, shareLink } = this.state;
 		const { classes } = this.props;
+
 		return (
 			<div>
 				{project &&
@@ -227,4 +239,4 @@ ProjectDetails.propTypes = {
 	classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProjectDetails);
+export default withRouter(withStyles(styles)(ProjectDetails));
