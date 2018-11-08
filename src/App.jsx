@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect, Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import GraveStone from "mdi-material-ui/GraveStone";
 import ProjectList from "./ProjectList"
 import ProjectDetails from "./ProjectDetails"
 
@@ -31,22 +32,27 @@ class App extends Component {
 		const { classes } = this.props;
 		return (
 			<div>
-				<AppBar position="static" color="secondary" classes={{ root: classes.appBar }}>
-					<ToolBar>
-						<Typography variant="h6" className={classes.grow}>
-							Lithoprojets
-						</Typography>
-						<IconButton href="https://github.com/sixelasacul/lithoprojets" target="_blank">
-							<FontAwesomeIcon icon={{prefix:"fab", iconName:"github"}} />
-						</IconButton>
-					</ToolBar>
-				</AppBar>
 				<HashRouter basename="/">
-					<Switch>
-						<Route path="/:id" component={ProjectDetails} />
-						<Route path="/" component={ProjectList} />
-						<Redirect to="/" />
-					</Switch>
+					<>
+						<AppBar position="static" color="secondary" classes={{ root: classes.appBar }}>
+							<ToolBar>
+								<IconButton component={Link} to="/" replace>
+									<GraveStone />
+								</IconButton>
+								<Typography variant="h6" className={classes.grow}>
+									Lithoprojets
+							</Typography>
+								<IconButton href="https://github.com/sixelasacul/lithoprojets" target="_blank">
+									<FontAwesomeIcon icon={{ prefix: "fab", iconName: "github" }} />
+								</IconButton>
+							</ToolBar>
+						</AppBar>
+						<Switch>
+							<Route path="/:id" component={ProjectDetails} />
+							<Route path="/" component={ProjectList} />
+							<Redirect to="/" />
+						</Switch>
+					</>
 				</HashRouter>
 			</div>
 		);

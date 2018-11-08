@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Slider from "@material-ui/lab/Slider";
+import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -29,6 +30,9 @@ const styles = theme => ({
 	paper: {
 		margin: "40px 0px",
 		padding: "25px"
+	},
+	iconButton: {
+		marginRight: theme.spacing.unit
 	}
 });
 
@@ -43,8 +47,11 @@ class ProjectDetails extends Component {
 			value: parseInt(value),
 			error: false
 		}
+		this.shareLink = ""
+		this.hiddenInput = React.createRef()
 		this.handleSliderDragged = this.handleSliderDragged.bind(this);
 		this.handleTextFieldChanged = this.handleTextFieldChanged.bind(this);
+		this.copyToClipboard = this.copyToClipboard.bind(this);
 	}
 
 	componentDidMount() {
@@ -63,6 +70,17 @@ class ProjectDetails extends Component {
 				}
 			})
 		}
+	}
+
+	copyToClipboard() {
+		this.shareLink = window.location.href + "#" + this.state.value;
+		navigator.clipboard.writeText(this.shareLink)
+			.then(() => {
+				console.log('ouiiiiii');
+			})
+			.catch(err => {
+				console.log('Something went wrong', err);
+			});
 	}
 
 	changeDateFormat(date) {
@@ -90,7 +108,7 @@ class ProjectDetails extends Component {
 	}
 
 	render() {
-		const { project, value, error } = this.state;
+		const { project, value, error, shareLink } = this.state;
 		const { classes } = this.props;
 		return (
 			<div>
@@ -117,56 +135,71 @@ class ProjectDetails extends Component {
 								</Typography>
 							</Paper>
 							<Paper className={classes.paper}>
-								<Grid container direction="row" justify="center" alignItems="center">
-									<TextField
-										label="Étape"
-										value={value}
-										error={error}
-										onChange={this.handleTextFieldChanged}
-										type="number"
-										inputProps={{
-											min: 0,
-											max: project.steps.length - 1,
-											step: 1
-										}}
-										variant="outlined"
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<Slider
-										color="secondary"
-										min={0}
-										max={project.steps.length - 1}
-										step={1}
-										classes={{
-											root: classes.sliderRoot,
-											container: classes.sliderContainer,
-											track: classes.sliderTrack
-										}}
-										value={value}
-										onChange={this.handleSliderDragged}
-										thumb={<FontAwesomeIcon icon="ghost" />}
-									/>
-								</Grid>
-								<Grid container directon="row" justify="space-around" alignItems="flex-start">
-									<Grid item xs>
-										<Typography align="left" variant="body2">
-											{this.changeDateFormat(project.startDate)}
-										</Typography>
+								<Grid container direction="column" spacing={16}>
+									<Grid item>
+										<Grid container direction="row" justify="center" alignItems="center">
+											<TextField
+												label="Étape"
+												value={value}
+												error={error}
+												onChange={this.handleTextFieldChanged}
+												type="number"
+												inputProps={{
+													min: 0,
+													max: project.steps.length - 1,
+													step: 1
+												}}
+												variant="standard"
+											/>
+										</Grid>
 									</Grid>
-									<Grid item xs>
-										<Typography align="center" variant="body1">
-											{project.steps[value]}
-										</Typography>
+									<Grid item>
+										<Grid container direction="row" justify="center" alignItems="center">
+											<Button color="primary" variant="contained" onClick={this.copyToClipboard}>
+												<FontAwesomeIcon icon="share-alt" className={classes.iconButton} />
+												Partager
+											</Button>
+										</Grid>
 									</Grid>
-									<Grid item xs>
-										<Typography align="right" variant="body2">
-											{this.changeDateFormat(project.endDate)}
-										</Typography>
+									<Grid item>
+										<Slider
+											color="secondary"
+											min={0}
+											max={project.steps.length - 1}
+											step={1}
+											classes={{
+												root: classes.sliderRoot,
+												container: classes.sliderContainer,
+												track: classes.sliderTrack
+											}}
+											value={value}
+											onChange={this.handleSliderDragged}
+											thumb={<FontAwesomeIcon icon="ghost" />}
+										/>
+									</Grid>
+									<Grid item>
+										<Grid container directon="row" justify="space-around" alignItems="flex-start">
+											<Grid item xs>
+												<Typography align="left" variant="body2">
+													{this.changeDateFormat(project.startDate)}
+												</Typography>
+											</Grid>
+											<Grid item xs>
+												<Typography align="center" variant="body1">
+													{project.steps[value]}
+												</Typography>
+											</Grid>
+											<Grid item xs>
+												<Typography align="right" variant="body2">
+													{this.changeDateFormat(project.endDate)}
+												</Typography>
+											</Grid>
+										</Grid>
 									</Grid>
 								</Grid>
 							</Paper>
 						</Grid>
+						<input ref={this.hiddenInput} id="share" value={shareLink} onChange={()=>{}} hidden />
 					</Grid>
 				}
 				{!project && !this.state.exists &&
