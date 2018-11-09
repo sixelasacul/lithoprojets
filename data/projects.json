@@ -2,6 +2,8 @@
 	{
 		"name": "Polséidon",
 		"code": "polseidon",
+		"type": "Lucratif",
+		"displayed": true,
 		"description": "Logiciel pour les ports, 25 000 € passé sous le nez. De Cano.",
 		"contributors": [
 			"Alexis Lucas",
@@ -20,6 +22,8 @@
 	{
 		"name": "Holobus",
 		"code": "holobus",
+		"type": "Vie associative",
+		"displayed": true,
 		"description": "Solution utilisant les HoloLens de Microsoft pour visualiser en 3D, commander du matériel pour Airbus.",
 		"contributors": [
 			"Alexis Lucas",
@@ -40,6 +44,8 @@
 	{
 		"name": "Babyfoot connecté",
 		"code": "babyfoot",
+		"type": "Vie associative",
+		"displayed": true,
 		"description": "Projet de vie associative pour avoir une babyfoot et créer une application mobile/un site web pour voir et organiser ses matchs.",
 		"contributors": [
 			"Alexis Lucas",
@@ -61,6 +67,8 @@
 	{
 		"name": "jaiunevierebondissante.com",
 		"code": "vierebondissante",
+		"type": "Fun",
+		"displayed": true,
 		"description": "Idée marrante d'un gars qui raconte sa vie nulle pour faire rigoler ses camarades.",
 		"contributors": [
 			"Alexis Lucas"
@@ -76,6 +84,8 @@
 	{
 		"name": "lesexpressionsdalexis.com",
 		"code": "expressionsalexis",
+		"type": "Fun",
+		"displayed": true,
 		"description": "On vous a déjà dit au'il y avait un gars qui dit plein de choses sans sens censées faire rire ?",
 		"contributors": [
 			"Alexis Lucas"
@@ -91,6 +101,8 @@
 	{
 		"name": "Bureau des sports",
 		"code": "bds",
+		"type": "Vie associative",
+		"displayed": true,
 		"description": "En première année, c'est beau de vouloir entreprendre des projets. Pratiquer du sport dans une école d'ingénieur, c'était une bonne idée. En théorie.",
 		"contributors": [
 			"Denis Fèvre"
@@ -100,6 +112,62 @@
 		"steps": [
 			"Émergence de l'idée",
 			"On a bien ri",
+			"Abandon du projet"
+		]
+	},{
+		"name": "Taktyl",
+		"code": "taktyl",
+		"type": "Lucratif",
+		"displayed": false,
+		"description": "Projet lucratif en dehors de l'école, pour développer une application mobile sur les 5 sens pour des aixois.",
+		"contributors": [
+			"Alexandre Cano",
+			"Paul Queruel",
+			"Lilian Berger"
+		],
+		"startDate": "01/04/2018",
+		"endDate": "01/08/2018",
+		"steps": [
+			"Alexandre trouve le contact sur Facebook",
+			"Le groupe se forme",
+			"Réunion pour définir les fonctionnalités (1)",
+			"Création du MCD",
+			"Réunion pour définir les fonctionnalités (2)",
+			"Mise å jour du MCD (1)",
+			"Réunion pour définir les fonctionnalités (3)",
+			"Mise å jour du MCD (1)",
+			"Réunion pour définir l'avancement (1)",
+			"Réunion pour définir l'avancement (2)",
+			"Demande de Paul pour avoir un MacBook Pro pour travailler",
+			"Abandon passif du projet",
+			"Réunion pour définir l'avancement (3)",
+			"Réunion pour définir l'avancement (4)",
+			"Réunion pour définir l'avancement (5)"
+		]
+	},
+	{
+		"name": "Findhitler.org",
+		"code": "fh-org",
+		"type": "Fun",
+		"displayed": false,
+		"description": "Site web permettant de calculer le nombre minimum de sauts entre une page Wikipedia et celle d'Hitler.",
+		"contributors": [
+			"Alexis Lucas",
+			"Paul Queruel",
+			"Alexandre Cano"
+		],
+		"startDate": "01/04/2017",
+		"endDate": "01/07/2017",
+		"steps": [
+			"Émergence de l'idée",
+			"Début du travail sur l'implémentation de l'algorithme",
+			"Début du travail sur le design du site",
+			"Fin de la première implémentation de l'algorithme",
+			"Début du travail sur un autre design du site",
+			"Début du travail sur une autre implémentation de l'algorithme",
+			"Fin de la seconde implémentation de l'algorithme",
+			"Fin du design",
+			"Début de la deuxième version du design",
 			"Abandon du projet"
 		]
 	}

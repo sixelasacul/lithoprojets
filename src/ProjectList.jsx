@@ -23,7 +23,7 @@ class ProjectList extends Component {
 	}
 
 	render() {
-		const { projects } = this.state;
+		const projects = this.state.projects.filter(project => project.displayed);
 
 		return (
 			<Grid container justify="center" direction="column" alignItems="center">

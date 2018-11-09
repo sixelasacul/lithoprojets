@@ -81,7 +81,7 @@ class ProjectDetails extends Component {
 		const currentHash = this.props.location.hash;
 		const currentUrl = window.location.href;
 		const newBaseUrl = this.removeEnd(currentUrl, currentHash);
-		this.shareLink = "#" + this.state.value;
+		this.shareLink = newBaseUrl + "#" + this.state.value;
 		navigator.clipboard.writeText(this.shareLink)
 			.then(() => {
 				console.log("Copié: ", this.shareLink);
