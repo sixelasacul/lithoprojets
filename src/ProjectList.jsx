@@ -22,8 +22,18 @@ class ProjectList extends Component {
 		})
 	}
 
+	prepareProjects(initialList) {
+		return initialList.filter(project => project.displayed).sort((projectA, projectB) => {
+			if(projectA.name.toLowerCase() < projectB.name.toLowerCase())
+				return -1
+			if(projectA.name.toLowerCase() > projectB.name.toLowerCase())
+				return 1
+			return 0
+		})
+	}
+
 	render() {
-		const projects = this.state.projects.filter(project => project.displayed);
+		const projects = this.prepareProjects(this.state.projects);
 
 		return (
 			<Grid container justify="center" direction="column" alignItems="center">
