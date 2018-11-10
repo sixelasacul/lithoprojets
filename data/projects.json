@@ -3,6 +3,7 @@
 		"name": "Polséidon",
 		"code": "polseidon",
 		"type": "Lucratif",
+		"isEasterEgg": false,
 		"displayed": true,
 		"description": "Logiciel pour les ports, 25 000 € passé sous le nez. De Cano.",
 		"contributors": [
@@ -23,6 +24,7 @@
 		"name": "Holobus",
 		"code": "holobus",
 		"type": "Vie associative",
+		"isEasterEgg": false,
 		"displayed": true,
 		"description": "Solution utilisant les HoloLens de Microsoft pour visualiser en 3D, commander du matériel pour Airbus.",
 		"contributors": [
@@ -45,6 +47,7 @@
 		"name": "Babyfoot connecté",
 		"code": "babyfoot",
 		"type": "Vie associative",
+		"isEasterEgg": false,
 		"displayed": true,
 		"description": "Projet de vie associative pour avoir une babyfoot et créer une application mobile/un site web pour voir et organiser ses matchs.",
 		"contributors": [
@@ -68,6 +71,7 @@
 		"name": "jaiunevierebondissante.com",
 		"code": "vierebondissante",
 		"type": "Fun",
+		"isEasterEgg": false,
 		"displayed": true,
 		"description": "Idée marrante d'un gars qui raconte sa vie nulle pour faire rigoler ses camarades.",
 		"contributors": [
@@ -85,6 +89,7 @@
 		"name": "lesexpressionsdalexis.com",
 		"code": "expressionsalexis",
 		"type": "Fun",
+		"isEasterEgg": false,
 		"displayed": true,
 		"description": "On vous a déjà dit au'il y avait un gars qui dit plein de choses sans sens censées faire rire ?",
 		"contributors": [
@@ -102,6 +107,7 @@
 		"name": "Bureau des sports",
 		"code": "bds",
 		"type": "Vie associative",
+		"isEasterEgg": false,
 		"displayed": true,
 		"description": "En première année, c'est beau de vouloir entreprendre des projets. Pratiquer du sport dans une école d'ingénieur, c'était une bonne idée. En théorie.",
 		"contributors": [
@@ -118,6 +124,7 @@
 		"name": "Taktyl",
 		"code": "taktyl",
 		"type": "Lucratif",
+		"isEasterEgg": false,
 		"displayed": false,
 		"description": "Projet lucratif en dehors de l'école, pour développer une application mobile sur les 5 sens pour des aixois.",
 		"contributors": [
@@ -149,6 +156,7 @@
 		"name": "Findhitler.org",
 		"code": "fh-org",
 		"type": "Fun",
+		"isEasterEgg": false,
 		"displayed": false,
 		"description": "Site web permettant de calculer le nombre minimum de sauts entre une page Wikipedia et celle d'Hitler.",
 		"contributors": [
@@ -169,6 +177,31 @@
 			"Fin du design",
 			"Début de la deuxième version du design",
 			"Abandon du projet"
+		]
+	},
+	{
+		"name": "La maman de Coste",
+		"code": "coste",
+		"type": "Fun",
+		"isEasterEgg": true,
+		"displayed": true,
+		"description": "Nicolas Coste était un ami. Plutôt un camarade. Enfin un collègue. Qui chambrait trop tout le monde. Donc on l'a chambré sur des sujets sensibles.",
+		"contributors": [
+			"A1 2015-2016"
+		],
+		"startDate": "01/09/2015",
+		"endDate": "01/07/2016",
+		"steps": [
+			"Annonce de l'état passé de sa personne",
+			"Blague par Coste (1)",
+			"Blague par Coste (2)",
+			"Tacle par Coste envers Alexis (1)",
+			"Tacle par Coste envers Alexis (2)",
+			"Non c'est pas personnel",
+			"Blague sur la mère de Coste (1)",
+			"Blague sur la mère de Coste (2)",
+			"Ajout dans les rigoquotes #RajouteDeLaTerre",
+			"Fin de sa scolarité"
 		]
 	}
 ]
