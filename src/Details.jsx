@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import Slider from "@material-ui/lab/Slider";
 import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
+import withWidth from "@material-ui/core/withWidth";
 import { withRouter } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -27,6 +28,9 @@ const styles = theme => ({
 	},
 	sliderTrack: {
 		backgroundColor: theme.palette.primary.main
+	},
+	title: {
+		textAlign: "center"
 	},
 	paper: {
 		margin: "40px 0px",
@@ -60,7 +64,6 @@ class ProjectDetails extends Component {
 		if (!this.state.project) {
 			this.fetchProject(this.props.location.pathname.substring(1), (err, data) => {
 				if (!err) {
-					console.log(data);
 					this.setState({
 						project: data
 					}, () => {
@@ -124,29 +127,32 @@ class ProjectDetails extends Component {
 
 	render() {
 		const { project, value, error, shareLink } = this.state;
-		const { classes } = this.props;
+		const { classes, width } = this.props;
+		const titleVariant = width === "xs" ? "h3" : "h1";
+		const dtVariant = width === "xs" ? "body2" : "subtitle2";
+		const ddVariant = width === "xs" ? "subtitle2" : "h6";
 
 		return (
 			<div>
 				{project &&
 					<Grid container justify="center" alignItems="center" direction="column">
-						<Grid item xs={6}>
-							<Typography variant="h1" gutterBottom>
+						<Grid item lg={6} md={6} sm={8} xs={10} classes={{ item: classes.title }}>
+							<Typography variant={titleVariant} gutterBottom>
 								{project.name}
 							</Typography>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item lg={6} md={6} sm={8} xs={10}>
 							<Paper className={classes.paper}>
-								<Typography variant="subtitle2" align="left">
+								<Typography variant={dtVariant} align="left">
 									Description
 								</Typography>
-								<Typography variant="h6" align="right">
+								<Typography variant={ddVariant} align="right">
 									{project.description}
 								</Typography>
-								<Typography variant="subtitle2" align="left">
+								<Typography variant={dtVariant} align="left">
 									Contributeurs
 								</Typography>
-								<Typography variant="h6" align="right">
+								<Typography variant={ddVariant} align="right">
 									{project.contributors.sort().join(", ")}
 								</Typography>
 							</Paper>
@@ -240,7 +246,8 @@ ProjectDetails.propTypes = {
 		endDate: PropTypes.string.isRequired,
 		steps: PropTypes.array.isRequired
 	}),
-	classes: PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired,
+	titleTypoVariant: PropTypes.string
 };
 
-export default withRouter(withStyles(styles)(ProjectDetails));
+export default withWidth()(withRouter(withStyles(styles)(ProjectDetails)));

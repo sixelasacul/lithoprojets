@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
+import withWidth from "@material-ui/core/withWidth";
 import SimpleListItem from "./SimpleListItem";
 import EasterEggListItem from "./EasterEggListItem";
 import { fetchData } from "./utils/fetch";
@@ -41,15 +42,16 @@ class ProjectList extends Component {
 	render() {
 		const { displayNSFWProjects, displayEasterEggs } = this.props;
 		const projects = this.prepareProjects(this.state.projects, displayNSFWProjects, displayEasterEggs);
+		const titleVariant = this.props.width === "xs" ? "h3" : "h1";
 
 		return (
 			<Grid container justify="center" direction="column" alignItems="center">
-				<Grid item>
-					<Typography variant="h1" gutterBottom>
+				<Grid item lg={6} md={6} sm={8} xs={10}>
+					<Typography variant={titleVariant} gutterBottom>
 						Lithoprojets
 					</Typography>
 				</Grid>
-				<Grid item>
+				<Grid item lg={6} md={6} sm={8} xs={10}>
 					{(projects && projects.length > 0) && (
 						<Paper>
 							<List>
@@ -75,4 +77,4 @@ ProjectList.defaultProps = {
 	displayEasterEggs: false
 };
 
-export default ProjectList;
+export default withWidth()(ProjectList);

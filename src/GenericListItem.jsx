@@ -1,29 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Typography from "@material-ui/core/Typography";
+import withWidth from "@material-ui/core/withWidth";
 
-const GenericListItem = ({project, icon}) => {
+const GenericListItem = ({project, icon, width, ...props}) => {
+	const itemVariant = width === "xs" ? "h6" : "h4";
 	return (
 		<>
 			<ListItem button component={Link} to={
 					{
 						pathname: `/${project.code}`,
-						state: { project: project }
+						state: { project }
 					}
 				}>
 				{icon &&
 					<ListItemIcon>
-						<Typography variant="h4">
+						<Typography variant={itemVariant} {...props}>
 							{icon}
 						</Typography>
 					</ListItemIcon>
 				}
 				<ListItemText>
-					<Typography variant="h4" noWrap>
+					<Typography variant={itemVariant} noWrap {...props}>
 						{project.name}
 					</Typography>
 				</ListItemText>
@@ -45,4 +47,4 @@ GenericListItem.propTypes = {
 	icon: PropTypes.element
 };
 
-export default GenericListItem;
+export default withWidth()(GenericListItem);
