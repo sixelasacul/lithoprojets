@@ -4,7 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
-import ProjectListItem from "./ProjectListItem";
+import SimpleListItem from "./SimpleListItem";
+import EasterEggListItem from "./EasterEggListItem";
 import { fetchData } from "./utils/fetch";
 
 class ProjectList extends Component {
@@ -53,7 +54,7 @@ class ProjectList extends Component {
 						<Paper>
 							<List>
 								{projects.map(project => {
-									return <ProjectListItem project={project} icon="cross" key={project.code} />
+									return project.isEasterEgg ? <EasterEggListItem project={project} key={project.code}/> : <SimpleListItem project={project} key={project.code}/>
 								})}
 							</List>
 						</Paper>

@@ -10,8 +10,8 @@ import Icon from "@material-ui/core/Icon";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import GraveStone from "mdi-material-ui/GraveStone";
-import ProjectList from "./ProjectList"
-import ProjectDetails from "./ProjectDetails"
+import List from "./List"
+import Details from "./Details"
 
 const styles = {
 	appBar: {
@@ -83,8 +83,8 @@ class App extends Component {
 							</ToolBar>
 						</AppBar>
 						<Switch>
-							<Route path="/:id" component={ProjectDetails} />
-							<Route path="/" render={(props) => <ProjectList {...props} displayNSFWProjects={godMode} displayEasterEggs={mamanCoste} />} />
+							<Route path="/:id" component={Details} />
+							<Route path="/" render={(props) => <List {...props} displayNSFWProjects={godMode} displayEasterEggs={mamanCoste} />} />
 							<Redirect to="/" />
 						</Switch>
 					</>

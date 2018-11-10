@@ -5,11 +5,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const ProjectListItem = ({project, icon}) => {
+const GenericListItem = ({project, icon}) => {
 	return (
-		<li>
+		<>
 			<ListItem button component={Link} to={
 					{
 						pathname: `/${project.code}`,
@@ -19,7 +18,7 @@ const ProjectListItem = ({project, icon}) => {
 				{icon &&
 					<ListItemIcon>
 						<Typography variant="h4">
-							<FontAwesomeIcon icon={icon} />
+							{icon}
 						</Typography>
 					</ListItemIcon>
 				}
@@ -29,11 +28,11 @@ const ProjectListItem = ({project, icon}) => {
 					</Typography>
 				</ListItemText>
 			</ListItem>
-		</li>
+		</>
 	);
 };
 
-ProjectListItem.propTypes = {
+GenericListItem.propTypes = {
 	project: PropTypes.shape({
 		name: PropTypes.string.isRequired,
 		code: PropTypes.string.isRequired,
@@ -43,7 +42,7 @@ ProjectListItem.propTypes = {
 		endDate: PropTypes.string.isRequired,
 		steps: PropTypes.array.isRequired
 	}).isRequired,
-	icon: PropTypes.string
+	icon: PropTypes.element
 };
 
-export default ProjectListItem;
+export default GenericListItem;
