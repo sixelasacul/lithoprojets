@@ -11,8 +11,7 @@ class ProjectList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			projects: [],
-			easterEggs: []
+			projects: []
 		};
 	}
 
@@ -22,26 +21,14 @@ class ProjectList extends Component {
 				projects: data
 			});
 		})
-		if(this.props.displayEasterEggs) {
-			this.fetchEasterEggs((data) => {
-				this.setState({
-					easterEggs: data
-				})
-			})
-		}
 	}
 
 	fetchProjects(callback) {
 		fetchData(callback, "https://raw.githubusercontent.com/sixelasacul/lithoprojets/master/data/projects.json");
 	}
 
-	fetchEasterEggs(callback) {
-		fetchData(callback, "https://raw.githubusercontent.com/sixelasacul/lithoprojets/master/data/projects.json");
-	}
-
 	prepareProjects(initialList, displayNSFWProjects, easterEggs) {
-		const list = easterEggs && easterEggs.length !== 0 ? [...initialList, ...easterEggs] : initialList;
-		return list.filter(project => displayNSFWProjects || project.displayed).sort((projectA, projectB) => {
+		return initialList.filter(project => (displayNSFWProjects || project.displayed) && (easterEggs || !project.isEasterEgg)).sort((projectA, projectB) => {
 			if(projectA.name.toLowerCase() < projectB.name.toLowerCase())
 				return -1
 			if(projectA.name.toLowerCase() > projectB.name.toLowerCase())
@@ -51,8 +38,8 @@ class ProjectList extends Component {
 	}
 
 	render() {
-		const { displayNSFWProjects } = this.props;
-		const projects = this.prepareProjects(this.state.projects, displayNSFWProjects);
+		const { displayNSFWProjects, displayEasterEggs } = this.props;
+		const projects = this.prepareProjects(this.state.projects, displayNSFWProjects, displayEasterEggs);
 
 		return (
 			<Grid container justify="center" direction="column" alignItems="center">

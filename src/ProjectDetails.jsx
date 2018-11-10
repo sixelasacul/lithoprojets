@@ -41,6 +41,7 @@ class ProjectDetails extends Component {
 	constructor(props) {
 		super(props);
 		const project = (this.props.location.state && this.props.location.state.project);
+		document.title = project ? project.name : document.title;
 		const value = (this.props.location.hash && this.props.location.hash.substring(1)) || 0;
 		this.state = {
 			project: project,
@@ -57,8 +58,9 @@ class ProjectDetails extends Component {
 
 	componentDidMount() {
 		if (!this.state.project) {
-			fetchAndFindByCode(this.props.location.pathname.substring(1), (err, data) => {
+			this.fetchProject(this.props.location.pathname.substring(1), (err, data) => {
 				if (!err) {
+					console.log(data);
 					this.setState({
 						project: data
 					}, () => {
@@ -71,6 +73,10 @@ class ProjectDetails extends Component {
 				}
 			})
 		}
+	}
+
+	fetchProject(code, callback) {
+		fetchAndFindByCode(code, callback, "https://raw.githubusercontent.com/sixelasacul/lithoprojets/master/data/projects.json");
 	}
 
 	removeEnd(initialString, partToRemove) {
@@ -117,8 +123,6 @@ class ProjectDetails extends Component {
 	}
 
 	render() {
-		console.log(process.env.PUBLIC_URL);
-		console.log(this.props);
 		const { project, value, error, shareLink } = this.state;
 		const { classes } = this.props;
 

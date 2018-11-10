@@ -84,7 +84,7 @@ class App extends Component {
 						</AppBar>
 						<Switch>
 							<Route path="/:id" component={ProjectDetails} />
-							<Route path="/" render={(props) => <ProjectList {...props} displayNSFWProjects={godMode} easterEggMamanCoste={mamanCoste} />} />
+							<Route path="/" render={(props) => <ProjectList {...props} displayNSFWProjects={godMode} displayEasterEggs={mamanCoste} />} />
 							<Redirect to="/" />
 						</Switch>
 					</>
