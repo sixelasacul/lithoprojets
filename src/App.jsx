@@ -5,6 +5,8 @@ import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import GraveStone from "mdi-material-ui/GraveStone";
@@ -28,8 +30,38 @@ const styles = {
 };
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			countTomamanCoste: 20,
+			countToGodMode: 5
+		};
+
+		this.decrementToEasterEggs = this.decrementToEasterEggs.bind(this);
+	}
+
+	decrementToEasterEggs() {
+		if(this.state.countToGodMode > 0) {
+			const currentCount = this.state.countToGodMode;
+			this.setState({
+				countToGodMode: currentCount - 1
+			});
+		}
+		if(this.state.countTomamanCoste > 0) {
+			const currentCount = this.state.countTomamanCoste;
+			this.setState({
+				countTomamanCoste: currentCount - 1
+			});
+		}
+	}
+
 	render() {
 		const { classes } = this.props;
+		const { countToGodMode, countTomamanCoste } = this.state;
+		const godMode = countToGodMode === 0
+		const mamanCoste = countTomamanCoste === 0
+
 		return (
 			<div>
 				<HashRouter basename="/">
@@ -41,7 +73,10 @@ class App extends Component {
 								</IconButton>
 								<Typography variant="h6" className={classes.grow}>
 									Lithoprojets
-							</Typography>
+								</Typography>
+								<Button onClick={this.decrementToEasterEggs}>
+									<Icon />
+								</Button>
 								<IconButton href="https://github.com/sixelasacul/lithoprojets" target="_blank">
 									<FontAwesomeIcon icon={{ prefix: "fab", iconName: "github" }} />
 								</IconButton>
@@ -49,7 +84,7 @@ class App extends Component {
 						</AppBar>
 						<Switch>
 							<Route path="/:id" component={ProjectDetails} />
-							<Route path="/" component={ProjectList} />
+							<Route path="/" render={(props) => <ProjectList {...props} displayNSFWProjects={godMode} easterEggMamanCoste={mamanCoste} />} />
 							<Redirect to="/" />
 						</Switch>
 					</>

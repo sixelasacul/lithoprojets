@@ -1,5 +1,5 @@
-export function fetchData(callback) {
-	fetch('https://raw.githubusercontent.com/sixelasacul/lithoprojets/master/data/projects.json')
+export function fetchData(callback, source) {
+	fetch(source)
 		.then((response) => {
 			return response.json();
 		})
@@ -8,8 +8,8 @@ export function fetchData(callback) {
 		});
 }
 
-export function returnFetchData() {
-	return fetch('https://raw.githubusercontent.com/sixelasacul/lithoprojets/master/data/projects.json')
+export function returnFetchData(source) {
+	return fetch(source)
 		.then((response) => {
 			return response.json();
 		})
@@ -18,11 +18,11 @@ export function returnFetchData() {
 		});
 }
 
-export function returnPromiseFetchData() {
-	return fetch('https://raw.githubusercontent.com/sixelasacul/lithoprojets/master/data/projects.json');
+export function returnPromiseFetchData(source) {
+	return fetch(source);
 }
 
-export function fetchAndFindByCode(code, callback) {
+export function fetchAndFindByCode(code, callback, source) {
 	fetchData((data) => {
 		data.some((d => {
 			if (d.code === code) {
@@ -32,5 +32,5 @@ export function fetchAndFindByCode(code, callback) {
 			callback("Nothing found with this code: " + code);
 			return false;
 		}));
-	});
+	}, source);
 }
