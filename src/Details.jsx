@@ -131,6 +131,7 @@ class ProjectDetails extends Component {
 		const titleVariant = width === "xs" ? "h3" : "h1";
 		const dtVariant = width === "xs" ? "body2" : "subtitle2";
 		const ddVariant = width === "xs" ? "subtitle2" : "h6";
+		const smWidth = width === "sm" || width === "xs";
 
 		return (
 			<div>
@@ -183,6 +184,22 @@ class ProjectDetails extends Component {
 											</Button>
 										</Grid>
 									</Grid>
+									{smWidth &&
+										<Grid item>
+											<Grid container directon="row" justify="space-around" alignItems="flex-start">
+												<Grid item xs>
+													<Typography align="left" variant="body2">
+														{this.changeDateFormat(project.startDate)}
+													</Typography>
+												</Grid>
+												<Grid item xs>
+													<Typography align="right" variant="body2">
+														{this.changeDateFormat(project.endDate)}
+													</Typography>
+												</Grid>
+											</Grid>
+										</Grid>
+									}
 									<Grid item>
 										<Slider
 											color="secondary"
@@ -201,21 +218,25 @@ class ProjectDetails extends Component {
 									</Grid>
 									<Grid item>
 										<Grid container directon="row" justify="space-around" alignItems="flex-start">
-											<Grid item xs>
-												<Typography align="left" variant="body2">
-													{this.changeDateFormat(project.startDate)}
-												</Typography>
-											</Grid>
+											{!smWidth &&
+												<Grid item xs>
+													<Typography align="left" variant="body2">
+														{this.changeDateFormat(project.startDate)}
+													</Typography>
+												</Grid>
+											}
 											<Grid item xs>
 												<Typography align="center" variant="body1">
 													{project.steps[value]}
 												</Typography>
 											</Grid>
-											<Grid item xs>
-												<Typography align="right" variant="body2">
-													{this.changeDateFormat(project.endDate)}
-												</Typography>
-											</Grid>
+											{!smWidth &&
+												<Grid item xs>
+													<Typography align="right" variant="body2">
+														{this.changeDateFormat(project.endDate)}
+													</Typography>
+												</Grid>
+											}
 										</Grid>
 									</Grid>
 								</Grid>
