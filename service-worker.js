@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/lithoprojets/precache-manifest.14303fc1c12b885036826c7748531382.js"
+  "/lithoprojets/precache-manifest.b229c9f9bb840921cd6c457f906fc43b.js"
 );
 
 workbox.clientsClaim();
