@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
+import Tooltip from "@material-ui/core/Tooltip";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import GraveStone from "mdi-material-ui/GraveStone";
@@ -26,7 +27,12 @@ const styles = {
 	menuButton: {
 		marginLeft: -12,
 		marginRight: 20,
-	}
+	},
+	easterEggButton: {
+        '&:hover': {
+            backgroundColor: 'transparent'
+        }
+    }
 };
 
 class App extends Component {
@@ -34,33 +40,37 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			countTomamanCoste: 20,
-			countToGodMode: 5
+			countClick: 0,
+			countToMamanCoste: 20,
+			countToGodMode: 5,
+			tooltipText: ""
 		};
 
 		this.decrementToEasterEggs = this.decrementToEasterEggs.bind(this);
+		this.onEasterEggHover = this.onEasterEggHover.bind(this);
 	}
 
 	decrementToEasterEggs() {
-		if(this.state.countToGodMode > 0) {
-			const currentCount = this.state.countToGodMode;
+		if(this.state.countClick < this.state.countToGodMode || this.state.countClick < this.state.countToMamanCoste) {
+			const currentCount = this.state.countClick;
 			this.setState({
-				countToGodMode: currentCount - 1
+				countClick: currentCount + 1,
+				tooltipText: currentCount + 1 + " clics"
 			});
 		}
-		if(this.state.countTomamanCoste > 0) {
-			const currentCount = this.state.countTomamanCoste;
-			this.setState({
-				countTomamanCoste: currentCount - 1
-			});
-		}
+	}
+
+	onEasterEggHover() {
+		this.setState({
+			tooltipText: "Easter Eggs ?"
+		});
 	}
 
 	render() {
 		const { classes } = this.props;
-		const { countToGodMode, countTomamanCoste } = this.state;
-		const godMode = countToGodMode === 0
-		const mamanCoste = countTomamanCoste === 0
+		const { countClick, countToGodMode, countToMamanCoste, tooltipText } = this.state;
+		const godMode = countClick >= countToGodMode;
+		const mamanCoste = countClick >= countToMamanCoste;
 
 		return (
 			<div>
@@ -74,9 +84,19 @@ class App extends Component {
 								<Typography variant="h6" className={classes.grow}>
 									Lithoprojets
 								</Typography>
-								<Button onClick={this.decrementToEasterEggs}>
-									<Icon />
-								</Button>
+								<Tooltip
+									disableFocusListener
+									disableTouchListener
+									title={tooltipText}
+									enterDelay={500}
+									leaveDelay={500}>
+									<Button
+										onMouseEnter={this.onEasterEggHover}
+										onClick={this.decrementToEasterEggs}
+										className={classes.easterEggButton}>
+										<Icon />
+									</Button>
+								</Tooltip>
 								<IconButton href="https://github.com/sixelasacul/lithoprojets" target="_blank">
 									<FontAwesomeIcon icon={{ prefix: "fab", iconName: "github" }} />
 								</IconButton>

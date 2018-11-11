@@ -126,7 +126,7 @@ class ProjectDetails extends Component {
 	}
 
 	render() {
-		const { project, value, error, shareLink } = this.state;
+		const { project, value, error } = this.state;
 		const { classes, width } = this.props;
 		const titleVariant = width === "xs" ? "h3" : "h1";
 		const dtVariant = width === "xs" ? "body2" : "subtitle2";
@@ -242,7 +242,6 @@ class ProjectDetails extends Component {
 								</Grid>
 							</Paper>
 						</Grid>
-						<input ref={this.hiddenInput} id="share" value={shareLink} onChange={()=>{}} hidden />
 					</Grid>
 				}
 				{!project && !this.state.exists &&
