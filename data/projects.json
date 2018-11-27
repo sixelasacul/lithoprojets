@@ -1,5 +1,26 @@
 [
 	{
+		"name": "Cancer.org",
+		"code": "cancer",
+		"type": "Fun",
+		"isEasterEgg": false,
+		"displayed": true,
+		"description": "Compteurs de points basés sur le nombre de fois où un membre de l'Exia a été reconnu comme autiste, raciste, faggot, ou autres comportements négatifs.",
+		"contributors": [
+			"Alexis Lucas",
+			"Paul Queruel",
+			"Denis Fèvre"
+		],
+		"startDate": "01/11/2015",
+		"endDate": "01/11/2018",
+		"steps": [
+			"Émergence de l'idée",
+			"Abandon du projet",
+			"Déterrement de l'idée",
+			"Abandon du projet"
+		]
+	},
+	{
 		"name": "Polséidon",
 		"code": "polseidon",
 		"type": "Lucratif",
